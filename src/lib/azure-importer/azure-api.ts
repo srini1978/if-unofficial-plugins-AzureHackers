@@ -21,30 +21,37 @@ export class AzureAPI {
    */
   public async getMetricsTimeseries(
     params: GetMetricsParams,
-    metricName: string
+    metricName: string,
   ) {
     const {
       subscriptionId,
-      resourceGroupName,
       timespan,
       interval,
       aggregation,
-      vmName,
+      metricnamespace,
     } = params;
 
     this.setClient(subscriptionId);
 
     const monitorClient = new MonitorClient(this.credential, subscriptionId);
-    const response = await monitorClient.metrics.list(
-      `subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines/${vmName}`,
+    const filter = "Microsoft.ResourceId eq '*'";
+    const region ="south india";
+    const response = await monitorClient.metricsOperations.listAtSubscriptionScope(region,
+      
       {
+        
         metricnames: metricName,
         timespan,
         interval,
         aggregation,
-      }
-    );
+        metricnamespace,
+        filter,
 
+      }
+    
+
+    );
+     console.log(response);
     return (response.value[0].timeseries || [])
       .map(series => series.data || [])
       .flat();

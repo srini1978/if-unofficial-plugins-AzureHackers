@@ -1,5 +1,5 @@
 {
-  "name": "@grnsft/if-unofficial-plugins",
+  "name": "my-plugins2",
   "description": "Impact Framework Unofficial Plugins.",
   "version": "v0.3.0",
   "author": {
@@ -10,8 +10,8 @@
     "url": "https://github.com/Green-Software-Foundation/if-unofficial-plugins/issues/new?assignees=&labels=feedback&projects=&template=feedback.md&title=Feedback+-+"
   },
   "dependencies": {
-    "@azure/arm-compute": "^21.2.0",
-    "@azure/arm-monitor": "^7.0.0",
+    "@azure/arm-compute": "^21.5.0",
+    "@azure/arm-monitor": "^8.0.0-beta.5",
     "@azure/identity": "^3.4.1",
     "@cloud-carbon-footprint/aws": "^0.15.0",
     "@tgwf/co2": "^0.14.1",

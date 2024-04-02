@@ -14,6 +14,7 @@ export type AzureInputs = {
   timestamp: string;
   duration: string;
   window: string;
+  metricnamespace: string;
 };
 
 export type GetMetricsParams = {
@@ -23,6 +24,7 @@ export type GetMetricsParams = {
   interval: string;
   aggregation: string;
   vmName: string;
+  metricnamespace: string;
 };
 
 export type AzureMetadataOutputs = {

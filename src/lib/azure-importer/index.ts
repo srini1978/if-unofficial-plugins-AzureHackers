@@ -94,9 +94,10 @@ export const AzureImporter = (): PluginInterface => {
   const mapInputToAzureInputs = (input: PluginParams): AzureInputs => {
     return {
       aggregation: input['azure-observation-aggregation'],
+      subscriptionId: input['azure-subscription-id'],
+      metricnamespace : input['azure-metric-namespace'],
       resourceGroupName: input['azure-resource-group'],
       vmName: input['azure-vm-name'],
-      subscriptionId: input['azure-subscription-id'],
       timestamp: input['timestamp']!,
       duration: input['duration'].toString(),
       window: input['azure-observation-window'],
@@ -119,6 +120,7 @@ export const AzureImporter = (): PluginInterface => {
         'azure-resource-group': z.string(),
         'azure-vm-name': z.string(),
         'azure-subscription-id': z.string(),
+        'azure-metric-namespace': z.string(),
       })
       .refine(allDefined, {
         message: 'All parameters should be present.',
